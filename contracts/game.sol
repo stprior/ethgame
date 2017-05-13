@@ -26,7 +26,7 @@ contract Location extends Container {
     
 }
 
-//special GameObject which associated witha specific player, used as a context for other actions
+//special GameObject which associated with a specific player, used as a context for other actions
 contract Player extends GameObject
 {
     Location currentLocation;
@@ -50,9 +50,12 @@ contract Map {
     function Map()
     {
         //construct a static map and create associated locations and exits
+        
     }
     mapping(Location => Exits) graph;
+    mapping(string  => Direction) directions;
 
+    
     Location start;
     
 }
@@ -67,20 +70,31 @@ contract Action
 contract Go extends Action {
     function doAction(Player p, Direction d)
     {
-        l1 = p.location;
-        exits = map.graph[l1];
-        l2 = exits[d];//error if not found
-        l1.
-        l2.add
+        var l1 = p.location;
+        var exits = map.graph[l1];
+        var l2 = exits[d];//error if not found
+        l1.remove(p);
+        l2.add(p);
+        p.location = l2;
         
     }
 }
 
+struct GameDescription
+{
+    Location[] locations;
+}
 contract Game
 {
+    
+
     function Game()
     {
         //Setup initial locations and map
+        var description = new GameDescription();
+        locations.push(new Location());
+        
+        
     }
 
     function Play() returns (Player newPlayer)
