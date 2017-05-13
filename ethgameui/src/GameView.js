@@ -29,7 +29,7 @@ class GameView extends Component {
 
   render() {
     return (
-        <div class="GameView">
+        <div className="GameView">
                 <ChatFeed
                   messages={this.state.messages} // Boolean: list of message objects
                   isTyping={this.state.is_typing} // Boolean: is the recipient typing
