@@ -92,9 +92,11 @@ contract Game
     {
         //Setup initial locations and map
         var description = new GameDescription();
-        locations.push(new Location());
-        
-        
+        for(int i=0;i++;i<4)
+        {
+            locations.push(new Location());
+        }
+        var map = new Map();
     }
 
     function Play() returns (Player newPlayer)
